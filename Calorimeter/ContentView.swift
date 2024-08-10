@@ -13,24 +13,28 @@ struct ContentView: View {
     
     
     var body: some View {
-        NavigationStack {
-            List() {
-                NavigationLink(destination: MealLogView()) {
-                    HStack {
-                        Image(systemName: "book")
-                            .foregroundColor(.blue)
-                        Text("Mahlzeiten")
-                    }
+        TabView {
+            DashboardView()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Dashboard")
                 }
-                NavigationLink(destination: WeightLogView()) {
-                    HStack {
-                        Image(systemName: "gauge")
-                            .foregroundColor(.blue)
-                        Text("Gewicht")
-                    }
+            
+            MealLogView()
+                .tabItem {
+                    Image(systemName: "book")
+                    Text("Mahlzeiten")
                 }
-            }
-            .navigationTitle("Calorimeter")
+            WeightLogView()
+                .tabItem {
+                    Image(systemName: "gauge")
+                    Text("Gewicht")
+                }
+            Text("Einstellungen")
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Einstellungen")
+                }
         }
     }
 }

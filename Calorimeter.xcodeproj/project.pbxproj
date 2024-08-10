@@ -20,6 +20,7 @@
 		3D98BB762C669918007FFC2F /* WeightEntryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98BB752C669918007FFC2F /* WeightEntryForm.swift */; };
 		3D98BB782C6699FA007FFC2F /* MealLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98BB772C6699FA007FFC2F /* MealLogView.swift */; };
 		3D98BB7A2C669B22007FFC2F /* MealEntryForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98BB792C669B22007FFC2F /* MealEntryForm.swift */; };
+		3D98BB7C2C67DF0C007FFC2F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98BB7B2C67DF0C007FFC2F /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		3D98BB752C669918007FFC2F /* WeightEntryForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightEntryForm.swift; sourceTree = "<group>"; };
 		3D98BB772C6699FA007FFC2F /* MealLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealLogView.swift; sourceTree = "<group>"; };
 		3D98BB792C669B22007FFC2F /* MealEntryForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealEntryForm.swift; sourceTree = "<group>"; };
+		3D98BB7B2C67DF0C007FFC2F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				3D98BB432C666800007FFC2F /* CalorimeterApp.swift */,
 				3D98BB452C666800007FFC2F /* ContentView.swift */,
+				3D98BB7B2C67DF0C007FFC2F /* DashboardView.swift */,
 				3D98BB6F2C666963007FFC2F /* WeightEntry.swift */,
 				3D98BB732C669905007FFC2F /* WeightLogView.swift */,
 				3D98BB772C6699FA007FFC2F /* MealLogView.swift */,
@@ -279,6 +282,7 @@
 				3D98BB462C666800007FFC2F /* ContentView.swift in Sources */,
 				3D98BB762C669918007FFC2F /* WeightEntryForm.swift in Sources */,
 				3D98BB7A2C669B22007FFC2F /* MealEntryForm.swift in Sources */,
+				3D98BB7C2C67DF0C007FFC2F /* DashboardView.swift in Sources */,
 				3D98BB782C6699FA007FFC2F /* MealLogView.swift in Sources */,
 				3D98BB722C666992007FFC2F /* MealEntry.swift in Sources */,
 				3D98BB702C666963007FFC2F /* WeightEntry.swift in Sources */,

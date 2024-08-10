@@ -34,7 +34,17 @@ struct MealLogView: View {
                 Button(action: {
                     showCreateView = true
                 }) {
-                    Label("Add Item", systemImage: "plus")
+                    Label("Eingeben", systemImage: "pencil")
+                }
+                Button(action: {
+                    showCreateView = true
+                }) {
+                    Label("Scannen", systemImage: "barcode.viewfinder")
+                }
+                Button(action: {
+                    showCreateView = true
+                }) {
+                    Label("Favorit auswählen", systemImage: "star.filled")
                 }
             }
             .sheet(isPresented: $showCreateView) {

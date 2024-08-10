@@ -12,6 +12,8 @@ struct MealEntryForm: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
     
+    @State private var favoritButtonColor: Color = .blue
+    
     @State private var timestamp: Date = Date()
     @State private var name: String = ""
     @State private var portions: Double = 1.0
@@ -37,10 +39,16 @@ struct MealEntryForm: View {
                     Text("\(portions, specifier: "%.1f")")
                     }
                 }
-
+                Spacer()
             }
             .navigationTitle("Neuer Eintrag")
             .toolbar {
+                Button {
+                    favoritButtonColor = .yellow
+                } label: {
+                    Label("Favorit hinzufügen", systemImage: "star.fill")
+                        .foregroundColor(favoritButtonColor)
+                }
                 Button("Speichern") {
                     let meal = MealEntry(timestamp: timestamp, name: name, portions: portions, calories: kilocalories)
                     modelContext.insert(meal)
