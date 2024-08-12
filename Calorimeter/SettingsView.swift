@@ -9,8 +9,11 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("notificationsEnabled") private var notificationsEnabled = false
+    @AppStorage("waterReminderEnabled") private var waterReminderEnabled = false
     @AppStorage("desiredWeight") private var desiredWeight = 75.0
     @AppStorage("dailyCaloriesConsumption") private var dailyCaloriesConsumption = -1
+    @AppStorage("dailyWaterGoal") private var dailyWaterGoal = 2
+    
 
     @State private var showBasicConsumptionSheet = false
     
@@ -52,6 +55,18 @@ struct SettingsView: View {
                                     .foregroundStyle(Color.blue)
                             })
                         }
+                    }
+                }
+                Section(header: Text("Wasser trinken")) {
+                    HStack {
+                        Text("Trinkziel")
+                        TextField("Wasser (Liter)", value: $dailyWaterGoal, formatter: NumberFormatter())
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.decimalPad)
+                        Text("Liter")
+                    }
+                    Toggle(isOn: $waterReminderEnabled) {
+                        Text("Erinnern")
                     }
                 }
                 .sheet(isPresented: $showBasicConsumptionSheet, content: {

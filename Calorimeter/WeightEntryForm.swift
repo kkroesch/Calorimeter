@@ -17,6 +17,8 @@ struct WeightEntryForm: View {
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 1
         return formatter
     }()
     
@@ -24,8 +26,13 @@ struct WeightEntryForm: View {
         NavigationStack {
             Form {
                 DatePicker("Datum", selection: $timestamp, displayedComponents: .date )
-                TextField("Gewicht (kg)", value: $kilograms, formatter: formatter)
-                    .keyboardType(.decimalPad)
+                HStack {
+                    Text("Gewogen")
+                    TextField("Gewicht (kg)", value: $kilograms, formatter: formatter)
+                        .keyboardType(.decimalPad)
+                        .multilineTextAlignment(.trailing)
+                    Text("kg")
+                }
             }
             .navigationTitle("Neuer Eintrag")
             .toolbar {
