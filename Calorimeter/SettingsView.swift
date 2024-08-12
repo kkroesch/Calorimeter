@@ -46,7 +46,7 @@ struct SettingsView: View {
                             Text("\(dailyCaloriesConsumption) kCal")
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                             Button(action: {
-                                
+                                showBasicConsumptionSheet = true
                             }, label: {
                                 Image(systemName: "arrow.2.circlepath")
                                     .foregroundStyle(Color.blue)

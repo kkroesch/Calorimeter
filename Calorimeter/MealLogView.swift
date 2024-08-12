@@ -15,6 +15,7 @@ struct MealLogView: View {
     
     @State private var showCreateView = false
     @State private var showScannerView = false
+    @State private var showFavoritesView = false
     
     var body: some View {
         NavigationView {
@@ -42,7 +43,7 @@ struct MealLogView: View {
                     Label("Scannen", systemImage: "barcode.viewfinder")
                 }
                 Button(action: {
-                    showCreateView = true
+                    showFavoritesView = true
                 }) {
                     Label("Favoriten", systemImage: "star")
                 }
@@ -50,9 +51,12 @@ struct MealLogView: View {
             .sheet(isPresented: $showCreateView) {
                 MealEntryForm()
             }
-            .sheet(isPresented: $showScannerView, content: {
+            .sheet(isPresented: $showScannerView) {
                 ScannerView()
-            })
+            }
+            .sheet(isPresented: $showFavoritesView) {
+                FavoritesListView()
+            }
         }
     }
     

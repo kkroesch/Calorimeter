@@ -27,6 +27,7 @@
 		3D98BB842C69F4AB007FFC2F /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98BB832C69F4AB007FFC2F /* RestClient.swift */; };
 		3D98BB862C69F670007FFC2F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98BB852C69F670007FFC2F /* SettingsView.swift */; };
 		3D98BB882C69FE1A007FFC2F /* ConsumptionCalculatorForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98BB872C69FE1A007FFC2F /* ConsumptionCalculatorForm.swift */; };
+		3D98BB8A2C6A27C8007FFC2F /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D98BB892C6A27C8007FFC2F /* FavoritesListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		3D98BB832C69F4AB007FFC2F /* RestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		3D98BB852C69F670007FFC2F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3D98BB872C69FE1A007FFC2F /* ConsumptionCalculatorForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumptionCalculatorForm.swift; sourceTree = "<group>"; };
+		3D98BB892C6A27C8007FFC2F /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				3D98BB7D2C69F3EB007FFC2F /* ScannerView.swift */,
 				3D98BB792C669B22007FFC2F /* MealEntryForm.swift */,
 				3D98BB752C669918007FFC2F /* WeightEntryForm.swift */,
+				3D98BB892C6A27C8007FFC2F /* FavoritesListView.swift */,
 				3D98BB712C666992007FFC2F /* MealEntry.swift */,
 				3D98BB7F2C69F42A007FFC2F /* CustomViewComponents.swift */,
 				3D98BB812C69F472007FFC2F /* BarcodeScanner.swift */,
@@ -308,6 +311,7 @@
 				3D98BB722C666992007FFC2F /* MealEntry.swift in Sources */,
 				3D98BB702C666963007FFC2F /* WeightEntry.swift in Sources */,
 				3D98BB882C69FE1A007FFC2F /* ConsumptionCalculatorForm.swift in Sources */,
+				3D98BB8A2C6A27C8007FFC2F /* FavoritesListView.swift in Sources */,
 				3D98BB822C69F472007FFC2F /* BarcodeScanner.swift in Sources */,
 				3D98BB442C666800007FFC2F /* CalorimeterApp.swift in Sources */,
 				3D98BB7E2C69F3EB007FFC2F /* ScannerView.swift in Sources */,

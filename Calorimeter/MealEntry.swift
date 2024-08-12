@@ -15,11 +15,13 @@ final class MealEntry {
     var name: String
     var portions: Double
     var calories: Int
+    var isFavorite: Bool
     
     init(timestamp: Date, name: String, portions: Double, calories: Int) {
         self.timestamp = timestamp
         self.name = name
         self.portions = portions
         self.calories = calories
+        self.isFavorite = false
     }
 }
