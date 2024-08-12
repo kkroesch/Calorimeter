@@ -11,7 +11,15 @@ import SwiftData
 struct MealLogView: View {
     
     @Environment(\.modelContext) private var modelContext
-    @Query private var mealEntries: [MealEntry]
+    @Query(sort: \MealEntry.timestamp, order: .reverse) private var mealEntries: [MealEntry]
+    
+    var groupedMealEntries: [String: [MealEntry]] {
+        Dictionary(grouping: mealEntries) { entry in
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            return formatter.string(from: entry.timestamp)
+        }
+    }
     
     @State private var showCreateView = false
     @State private var showScannerView = false
@@ -20,12 +28,24 @@ struct MealLogView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(mealEntries) { entry in
-                    HStack {
-                        Text("\(entry.timestamp, format: Date.FormatStyle(date: .numeric))")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        Text("\(entry.calories) kCal")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                ForEach(groupedMealEntries.keys.sorted(), id: \.self) { timestamp in
+                    let dailyMeals = groupedMealEntries[timestamp]!
+                    let dailyCalories = dailyMeals.reduce(0) { $0 + $1.calories }
+                    
+                    Section(header: Text(timestamp)) {
+                        ForEach(groupedMealEntries[timestamp]!, id: \.id) { mealEntry in
+                            HStack {
+                                Text(mealEntry.name)
+                                Text("\(mealEntry.calories)")
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                            }
+                        }
+                        HStack {
+                            Text("Gesamt").bold()
+                            Text("\(dailyCalories)")
+                                .bold()
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                        }
                     }
                 }
                 .onDelete(perform: deleteItems)
