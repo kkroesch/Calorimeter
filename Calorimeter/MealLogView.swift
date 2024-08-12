@@ -14,6 +14,7 @@ struct MealLogView: View {
     @Query private var mealEntries: [MealEntry]
     
     @State private var showCreateView = false
+    @State private var showScannerView = false
     
     var body: some View {
         NavigationView {
@@ -30,26 +31,28 @@ struct MealLogView: View {
             }
             .navigationTitle("Mahlzeiten")
             .toolbar {
-                EditButton()
                 Button(action: {
                     showCreateView = true
                 }) {
-                    Label("Eingeben", systemImage: "pencil")
+                    Label("Eingeben", systemImage: "plus")
                 }
                 Button(action: {
-                    showCreateView = true
+                    showScannerView = true
                 }) {
                     Label("Scannen", systemImage: "barcode.viewfinder")
                 }
                 Button(action: {
                     showCreateView = true
                 }) {
-                    Label("Favorit auswählen", systemImage: "star.filled")
+                    Label("Favoriten", systemImage: "star")
                 }
             }
             .sheet(isPresented: $showCreateView) {
                 MealEntryForm()
             }
+            .sheet(isPresented: $showScannerView, content: {
+                ScannerView()
+            })
         }
     }
     

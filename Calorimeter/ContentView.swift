@@ -30,7 +30,7 @@ struct ContentView: View {
                     Image(systemName: "gauge")
                     Text("Gewicht")
                 }
-            Text("Einstellungen")
+            SettingsView()
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Einstellungen")
