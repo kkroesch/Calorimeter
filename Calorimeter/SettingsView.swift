@@ -12,29 +12,22 @@ struct SettingsView: View {
     @AppStorage("waterReminderEnabled") private var waterReminderEnabled = false
     @AppStorage("desiredWeight") private var desiredWeight = 75.0
     @AppStorage("dailyCaloriesConsumption") private var dailyCaloriesConsumption = -1
-    @AppStorage("dailyWaterGoal") private var dailyWaterGoal = 2
+    @AppStorage("dailyWaterGoal") private var dailyWaterGoal:Int = 1
     
-
+    
     @State private var showBasicConsumptionSheet = false
     
     
     var body: some View {
         NavigationView {
             Form {
-                
                 Section(header: Text("App-Einstellungen")) {
                     Toggle(isOn: $notificationsEnabled) {
                         Text("Benachrichtigungen")
                     }
                 }
                 Section(header: Text("Persönlich")) {
-                    HStack {
-                        Text("Wunschgewicht")
-                        TextField("Gewicht (kg)", value: $desiredWeight, formatter: NumberFormatter())
-                            .multilineTextAlignment(.trailing)
-                            .keyboardType(.decimalPad)
-                        Text("kg")
-                    }
+                    Stepper("Wunschgewicht: \(Int(desiredWeight)) kg", value: $desiredWeight)
                     HStack {
                         Text("Grundverbrauch")
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -58,21 +51,15 @@ struct SettingsView: View {
                     }
                 }
                 Section(header: Text("Wasser trinken")) {
-                    HStack {
-                        Text("Trinkziel")
-                        TextField("Wasser (Liter)", value: $dailyWaterGoal, formatter: NumberFormatter())
-                            .multilineTextAlignment(.trailing)
-                            .keyboardType(.decimalPad)
-                        Text("Liter")
-                    }
+                    Stepper("Tagesziel: \(Int(dailyWaterGoal)) Liter", value: $dailyWaterGoal, in: 1...6)
                     Toggle(isOn: $waterReminderEnabled) {
                         Text("Erinnern")
                     }
                 }
-                .sheet(isPresented: $showBasicConsumptionSheet, content: {
-                    ConsumptionCalculatorForm()
-                })
             }
+            .sheet(isPresented: $showBasicConsumptionSheet, content: {
+                ConsumptionCalculatorForm()
+            })
             .navigationTitle("Einstellungen")
         }
     }
