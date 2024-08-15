@@ -15,16 +15,19 @@ struct MealChartView: View {
     @Query(sort: \MealEntry.timestamp, order: .reverse) private var mealEntries: [MealEntry]
     
     var body: some View {
-        Chart {
-            ForEach(mealEntries, id: \.id) { mealEntry in
-                BarMark(
-                    x: .value("Datum", mealEntry.timestamp),
-                    y: .value("Kalorien", mealEntry.calories)
-                )
+        VStack {
+            Text("Kalorienaufnahme").bold()
+            Chart {
+                ForEach(mealEntries, id: \.id) { mealEntry in
+                    BarMark(
+                        x: .value("Datum", mealEntry.timestamp),
+                        y: .value("Kalorien", mealEntry.calories)
+                    )
+                }
             }
+            .frame(height: 200)
+            .padding()
         }
-        .frame(height: 300)
-        .padding()
     }
 }
 

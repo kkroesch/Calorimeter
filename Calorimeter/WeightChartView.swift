@@ -10,19 +10,23 @@ import SwiftData
 import Charts
 
 struct WeightChartView: View {
+    
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \WeightEntry.timestamp) private var weightEntries: [WeightEntry]
-    
+            
     var body: some View {
-        Chart {
-            ForEach(weightEntries, id: \.id) { weightEntry in
-                LineMark(
-                    x: .value("Datum", weightEntry.timestamp),
-                    y: .value("kg", weightEntry.kilograms)
-                )
+        VStack {
+            Text("Gewicht").bold()
+            Chart {
+                ForEach(weightEntries) { entry in
+                    LineMark(
+                        x: .value("Datum", entry.timestamp),
+                        y: .value("kg", entry.kilograms)
+                    )
+                }
             }
         }
-        .frame(height: 300)
+        .frame(height: 200)
         .padding()
     }
 }

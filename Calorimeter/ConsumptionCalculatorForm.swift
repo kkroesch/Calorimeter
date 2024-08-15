@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ConsumptionCalculatorForm: View {
-
+    
     @AppStorage("dailyCaloriesConsumption") private var dailyCaloriesConsumption = -1
     @Environment(\.dismiss) var dismiss
 
-    @State private var selectedGender: String = "M"
-    @State private var age:Double = 30
-    @State private var weight:Double = 75
-    @State private var height: Double = 175
-    @State private var selectedWork: Double = 1.2
+    @AppStorage("gender") private var selectedGender: String = "M"
+    @AppStorage("currentAge") private var age:Double = 30
+    @AppStorage("currentWeight") private var weight:Double = 75
+    @AppStorage("height") private var height: Double = 175
+    @AppStorage("currentActiveLevel") private var selectedWork: Double = 1.2
     
 
     var body: some View {
